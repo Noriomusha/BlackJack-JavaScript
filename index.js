@@ -1,4 +1,5 @@
 let cards = []
+let cardMessage = ""
 let sum = 0
 let cardCount = 1
 let hasBlackJack = false
@@ -15,6 +16,7 @@ function startGame(){
     sum = firstCard + secondCard
     hasBlackJack = false
     isAlive = true
+    cardsEl.textContent = "Cards: "
     renderGame()
 }
 
@@ -31,8 +33,10 @@ function renderGame(){
         isAlive = false
         
     }
+    for(let i = 0; i < cards.length; i++){
+        cardsEl.textContent +=  " | " + cards[i]
+    }
     sumEl.textContent = "Total: " + sum
-    cardsEl.textContent = "Cards: " + cards[0] + " | " + cards[1] 
     messageEl.textContent = message
 }
 
@@ -47,10 +51,9 @@ function newCard()
         let newCards = Math.floor(Math.random() * 10) + 2
         cards.push(newCards)
         sum += newCards
-        cardCount += 1
         renderGame()
         sumEl.textContent = "Total: " + sum
-        cardsEl.textContent +=  " | " + cards[cardCount] + " | "
+        
         messageEl.textContent = message
 
     }  

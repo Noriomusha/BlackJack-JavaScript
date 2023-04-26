@@ -10,8 +10,8 @@ let cardsEl = document.getElementById("cards-el")
 
 function startGame(){
     clearGame()
-    let firstCard = Math.floor(Math.random() * 10) + 2
-    let secondCard = Math.floor(Math.random() * 10) + 2
+    let firstCard = generateRandomNumber()
+    let secondCard = generateRandomNumber()
     cards.push(firstCard)
     cards.push(secondCard)
     sum = firstCard + secondCard
@@ -49,7 +49,7 @@ function newCard()
         clearGame()
     }else{
         
-        let newCards = Math.floor(Math.random() * 10) + 2
+        let newCards = generateRandomNumber()
         cards.push(newCards)
         sum += newCards
         renderGame()
@@ -61,4 +61,9 @@ function clearGame(){
     sum = 0
     cardsEl.textContent = "Cards: " 
     sumEl.textContent = "Total: " 
+}
+
+function generateRandomNumber(){
+    let randomNumber = Math.floor(Math.random() * 10) + 1
+    return randomNumber
 }

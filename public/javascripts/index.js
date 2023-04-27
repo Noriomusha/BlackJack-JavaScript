@@ -117,11 +117,9 @@ function clearGame(){
     sum = 0
     cardsEl.textContent = "Cards: " 
     sumEl.textContent = "Total: " 
-    dealerCardsEl = "Cards: "
-    dealerSumEl = "Dealer's Total: "
-    dealerSum = 0
     dealerCard1 = 0
     dealerCard2 = 0
+    dealer.cards = []
     message = "Play A Round?"
 }
 
@@ -174,7 +172,7 @@ function stay(){
 
     }else if(dealer.sum === sum){
         messageEl.textContent = "It's a Draw!"
-        player.chips += bet
+        player.chips += bet*1
         playerEl.textContent = player.name + ": $" + player.chips
         dealerEl.textContent = dealer.name + " Cards: "
         for(let i = 0; i < dealer.cards.length; i++){

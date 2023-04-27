@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8080
+const port = process.env.PORT || 8080
 const path = require('path')
 
 app.get('/', (req, res) => {
@@ -13,4 +13,4 @@ app.use(express.static(path.join(__dirname, 'public', 'images')))
 
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)})    
+    console.log(`app listening at http://localhost:${port}`)})    
